@@ -42,15 +42,15 @@ export const translations = {
         },
         {
           description: "Application moderne et ergonomique permettant aux étudiants et professeurs de suivre les statistiques de réussite académique (Projet Intégré HERS).",
-          status: "Fini"
+          status: "Groupe"
         },
         {
           description: "Application mobile Android de suivi des lectures en milieu familial séparant interface parent et enfant via une architecture MVVM.",
-          status: "Fini"
+          status: "Solo"
         },
         {
           description: "Mise en place d'une architecture microservices complète avec authentification, équilibrage de charge HAProxy et serveur NGINX.",
-          status: "Fini"
+          status: "Groupe"
         }
       ]
     },
@@ -116,15 +116,15 @@ export const translations = {
         },
         {
           description: "Modern and ergonomic application allowing students and professors to track academic success statistics.",
-          status: "Finished"
+          status: "Group"
         },
         {
           description: "Android mobile application for family reading tracking separating parent and child interfaces via an MVVM architecture.",
-          status: "Finished"
+          status: "Solo"
         },
         {
           description: "Implementation of a complete microservices architecture with authentication, HAProxy load balancing, and NGINX server.",
-          status: "Finished"
+          status: "Group"
         }
       ]
     },

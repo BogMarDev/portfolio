@@ -47,7 +47,7 @@ const projects: Project[] = [
               <div class="flex items-center justify-between mb-4">
                 <h4 class="text-2xl font-semibold">{project.title}</h4>
                 <span class="py-1 px-3 text-xs rounded-full bg-[var(--white-icon-tr)] text-[var(--white-icon)]" data-i18n-project-status={index}>
-                  {index === 0 ? "Contributeur" : "Fini"}
+                  {index === 0 ? "Contributeur" : index === 2 ? "Solo" : "Groupe"}
                 </span>
               </div>
 
