@@ -1,41 +1,42 @@
 ---
-
 interface Project {
   title: string;
-  image: string;
+  description: string;
+  technologies: string[];
   link: string;
-  preview: string;
+  preview?: string;
   status: string;
 }
 
 const projects: Project[] = [
   {
-    title: "Project One",
-    image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Project+One",
-    link: "https://github.com",
-    preview: "https://example.com",
-    status: "Deployed",
+    title: "KineStat",
+    description: "Application web pour kinésithérapeutes dédiée à la réalisation de bilans cliniques et à la détection de signaux d'alerte (Red Flags).",
+    technologies: ["ASP.NET Core", "Entity Framework", "PostgreSQL", "Docker"],
+    link: "https://github.com/Abyssalt/kinestat",
+    preview: "https://hers.be/les-sections-kinesitherapie-et-informatique-au-service-du-diagnostic-clinique/",
+    status: "Contributeur",
   },
   {
-    title: "Project Two",
-    image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Project+Two",
-    link: "https://github.com",
-    preview: "https://example.com",
-    status: "On Development",
+    title: "DualDesk",
+    description: "Application moderne et ergonomique permettant aux étudiants et professeurs de suivre les statistiques de réussite académique (Projet Intégré HERS).",
+    technologies: ["Spring Web MVC", "Java", "Oracle SQL", "Tailwind CSS"],
+    link: "https://github.com/BogMarDev/DualDesk",
+    status: "Fini",
   },
   {
-    title: "Project Three",
-    image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Project+Three",
-    link: "https://github.com",
-    preview: "https://example.com",
-    status: "Contributor",
+    title: "BookBox",
+    description: "Application mobile Android de suivi des lectures en milieu familial séparant interface parent et enfant via une architecture MVVM.",
+    technologies: ["Kotlin", "MVVM", "Room", "Android Studio"],
+    link: "https://github.com/BogMarDev/BookBox",
+    status: "Fini",
   },
   {
-    title: "Project Four",
-    image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Project+Four",
-    link: "https://github.com",
-    preview: "https://example.com",
-    status: "Deployed",
+    title: "Projet Docker",
+    description: "Mise en place d'une architecture microservices complète avec authentification, équilibrage de charge HAProxy et serveur NGINX.",
+    technologies: ["Docker", "Flask", "Python", "HAProxy", "PostgreSQL"],
+    link: "https://github.com/BogMarDev/DockerProject",
+    status: "Fini",
   },
 ];
 ---
@@ -45,78 +46,81 @@ const projects: Project[] = [
   class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
 >
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My work</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projects</h3>
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Mon travail</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projets</h3>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {
-        projects.map((project) => (
-          <div class="group">
-            <a
-              href={project.preview}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block"
-            >
-              <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+        projects.map((project, index) => (
+          <div class="group flex flex-col justify-between p-6 rounded-2xl border border-[var(--white-icon-tr)] bg-[#1414149c] hover:border-[var(--sec)] transition-colors duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h4 class="text-2xl font-semibold">{project.title}</h4>
+                <span class="py-1 px-3 text-xs rounded-full bg-[var(--white-icon-tr)] text-[var(--white-icon)]">
+                  {project.status}
+                </span>
               </div>
-              <div class="flex items-center px-3">
-                <div class="flex-grow">
-                  <h4 class="text-2xl font-semibold">{project.title}</h4>
-                  <span class="py-1 text-sm text-[var(--white-icon)]">
-                    {project.status}
+
+              <p class="text-[var(--white-icon)] text-sm md:text-base mb-6 leading-relaxed">
+                {project.description}
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                {project.technologies.map((tech) => (
+                  <span class="text-xs px-2.5 py-1 rounded-md bg-[#1f1f1f] text-[var(--sec)] border border-[var(--white-icon-tr)]">
+                    {tech}
                   </span>
-                </div>
-                <div class="flex gap-2 ml-auto">
-                  <a
-                    target="_blank"
-                    href={project.link}
-                    aria-label="GitHub"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="size-7"
-                    >
-                      <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
-                    </svg>
-                  </a>
-                  <a
-                    target="_blank"
-                    href={project.preview}
-                    aria-label="Preview"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="size-7"
-                    >
-                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
-                    </svg>
-                  </a>
-                </div>
+                ))}
               </div>
-            </a>
+            </div>
+
+            <div class="flex items-center justify-end gap-6 pt-4 border-t border-[var(--white-icon-tr)]">
+              <a
+                target="_blank"
+                href={project.link}
+                class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-[var(--sec)] transition-colors duration-300 group/link"
+              >
+                <span>Code source</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-4 transform transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:-translate-y-1"
+                >
+                  <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                </svg>
+              </a>
+
+              {index === 0 && project.preview && (
+                <a
+                  target="_blank"
+                  href={project.preview}
+                  class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-[var(--sec)] transition-colors duration-300 group/link"
+                >
+                  <span>Lire l'article</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-4 transform transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:-translate-y-1"
+                  >
+                    <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                  </svg>
+                </a>
+              )}
+            </div>
           </div>
         ))
       }
     </div>
+
     <a
       target="_blank"
-      href="https://github.com"
+      href="https://github.com/BogMarDev"
       aria-label="GitHub"
       class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105"
     >
-      <span class="md:text-lg text-md">More projects on</span>
+      <span class="md:text-lg text-md">Plus de projets sur</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
