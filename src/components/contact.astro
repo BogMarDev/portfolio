@@ -1,17 +1,17 @@
 <section id="contact" class="w-full py-12 border-t border-[#ffffff10]">
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Discutons</h2>
-    <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-6">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec" data-i18n="contact.sectionTitle">Discutons</h2>
+    <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-6" data-i18n="contact.title">
       Contact
     </h3>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="text-[var(--white-icon)]">
-        <p class="mb-4">
+        <p class="mb-4" data-i18n="contact.description">
           Vous avez une question ou un projet en tête ? N'hésitez pas à me contacter.
         </p>
         <div class="flex items-center gap-2">
-          <span>Localisation :</span>
-          <span class="text-[var(--white)]">Belgique</span>
+          <span data-i18n="contact.locationLabel">Localisation :</span>
+          <span class="text-[var(--white)]" data-i18n="contact.locationValue">Belgique</span>
         </div>
       </div>
 
@@ -26,6 +26,7 @@
             type="text"
             name="from_name"
             placeholder="Nom"
+            data-i18n="contact.namePlaceholder"
             required
             class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)]"
           />
@@ -33,12 +34,14 @@
             type="email"
             name="reply_to"
             placeholder="Email"
+            data-i18n="contact.emailPlaceholder"
             required
             class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)]"
           />
           <textarea
             name="message"
             placeholder="Message"
+            data-i18n="contact.messagePlaceholder"
             rows="6"
             required
             class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] resize-none"
@@ -46,6 +49,7 @@
           <button
             type="submit"
             class="px-4 py-2 bg-[var(--white-icon-tr)] text-[var(--white)] rounded-lg opacity-60 transition-opacity border border-[var(--white-icon-tr)] hover:opacity-100 hover:bg-[var(--white-icon-tr)]"
+            data-i18n="contact.submitButton"
           >
             Envoyer
           </button>
@@ -53,6 +57,7 @@
         <div
           id="form-message"
           class="hidden justify-center items-center mt-4 text-[var(--white)] text-lg"
+          data-i18n="contact.successMessage"
         >
           ✅ Merci pour votre message !
         </div>
@@ -64,11 +69,9 @@
 <script type="module" is:inline>
   const form = document.getElementById("contact-form");
   const formMessage = document.getElementById("form-message");
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
-
     try {
       const response = await fetch(form.action, {
         method: "POST",

@@ -45,27 +45,30 @@ const currentYear = new Date().getFullYear();
           {
             [
               {
-                desc: "Développé avec",
+                descKey: "footer.builtWith",
+                defaultDesc: "Développé avec",
                 name: "Astro",
                 icon: `${import.meta.env.BASE_URL}/svg/astro.svg`,
                 alt: "Astro Logo",
               },
               {
-                desc: "Stylisé avec",
+                descKey: "footer.styledWith",
+                defaultDesc: "Stylisé avec",
                 name: "TailwindCSS",
                 icon: `${import.meta.env.BASE_URL}/svg/tailwindcss.svg`,
                 alt: "TailwindCSS Logo",
               },
               {
-                desc: "Déployé sur",
+                descKey: "footer.deployedOn",
+                defaultDesc: "Déployé sur",
                 name: "GitHub Pages",
                 icon: `${import.meta.env.BASE_URL}/svg/github.svg`,
                 alt: "GitHub Logo",
               },
             ].map((tech) => (
               <div class="flex items-center justify-center lg:justify-normal space-x-3">
-                <span class="text-[var(--white-icon)] text-sm">
-                  {tech.desc}
+                <span class="text-[var(--white-icon)] text-sm" data-i18n={tech.descKey}>
+                  {tech.defaultDesc}
                 </span>
                 <img
                   src={tech.icon}
@@ -86,7 +89,7 @@ const currentYear = new Date().getFullYear();
     <div class="mt-12 pt-8 border-t border-[#ffffff10]">
       <p class="text-center text-sm text-[var(--white-icon)] space-y-2">
         <span class="block sm:inline"
-          >Copyright © {currentYear} Marco Bogatu. All rights reserved.</span
+          >Copyright © {currentYear} Marco Bogatu. <span data-i18n="footer.rights">Tous droits réservés.</span></span
         >
       </p>
     </div>
