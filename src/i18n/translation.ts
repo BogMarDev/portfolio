@@ -54,6 +54,14 @@ export const translations = {
         }
       ]
     },
+    languages: {
+      sectionTitle: "Langues",
+      french: "Français",
+      english: "Anglais",
+      italian: "Italien",
+      romanian: "Roumain",
+      native: "Maternel",
+    },
     contact: {
       sectionTitle: "Discutons",
       title: "Contact",
@@ -127,6 +135,14 @@ export const translations = {
           status: "Group"
         }
       ]
+    },
+    languages: {
+      sectionTitle: "Languages",
+      french: "French",
+      english: "English",
+      italian: "Italian",
+      romanian: "Romanian",
+      native: "Native",
     },
     contact: {
       sectionTitle: "Let's talk",
