@@ -45,6 +45,7 @@ export default function LanguageToggle() {
     setLang(newLang);
     localStorage.setItem('portfolio_lang', newLang);
     updateTexts(newLang);
+    window.dispatchEvent(new Event('languageChange'));
   };
 
   return (

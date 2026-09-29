@@ -81,7 +81,7 @@ export const translations = {
     },
     hero: {
       greeting: "Welcome, I am Marco Bogatu",
-      role: "Software <br /> Analyst Developer",
+      role: "Analyst <br /> Developer",
       description: "Passionate and highly motivated developer, always eager to acquire new skills and fully dedicated to software development projects.",
       contactPrompt: "Reach me directly here:",
       cvButton: "Download my CV",
